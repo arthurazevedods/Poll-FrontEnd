@@ -7,6 +7,7 @@ const totalVotesElem = document.getElementById('totalVotes');
 for (let i = 0; i < progressBoxes.length; i++) {
     const elem = progressBoxes[i];
     elem.addEventListener('click',()=>{
+        console.log(elem, elem.id)
         addVote(elem,elem.id)
     })
     
@@ -15,12 +16,10 @@ for (let i = 0; i < progressBoxes.length; i++) {
 let vote = false;
 
 const addVote = (elem,id) =>{
-    if (vote){
-        return
-    }
     let voteTo = id;
     socket.emit('send-vote',voteTo);
     vote = true;
+    //todo: fazer com que somente um seja ativado
     elem.classList.add('active');
 }
 
@@ -40,9 +39,9 @@ const updatePolls = (data) =>{
         let vote = votingObject[progressBoxes[i].id];
         let setWidth = Math.round(vote / totalVotes * 100);
         const elem = document.querySelector(`#${progressBoxes[i].id}`).querySelector('.percent-tag');
-        elem.setAttribute('data',`${!setWidth? 0: setWidth}%`);
-        elem.style.width = `${!setWidth? 0: setWidth}%`
-        console.log(elem);
+        //elem.setAttribute('data',`${!setWidth? 0: setWidth}%`);
+        //elem.style.width = `${!setWidth? 0: setWidth}%`
+        //console.log(elem);
     
     }
 }
