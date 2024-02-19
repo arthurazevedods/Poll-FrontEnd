@@ -1,10 +1,11 @@
-const socket = io('http://localhost:8000');
+const socket = io('https://poll-nodeserver.onrender.com');
 
 const progressBoxes = document.querySelectorAll('.progress-box');
 const percentTags = document.querySelectorAll('.percent-tag')
 const totalVotesElem = document.getElementById('totalVotes');
 let votos_like1 = document.getElementById('votos-like-1')
-let votos_dontlike1 = document.getElementById('votos-like-1')
+let votos_dontlike1 = document.getElementById('votos-dontlike-1')
+
 
 
 for (let i = 0; i < progressBoxes.length; i++) {
@@ -38,9 +39,8 @@ const updatePolls = (data) =>{
     let votingObject = data.votingPolls;
     let totalVotes = data.totalVotes;
     totalVotesElem.innerHTML = totalVotes
-    console.log(votingObject)
-    votos_like1 = votingObject['dont-like']
-    votos_dontlike1 = votingObject['like']
+    votos_like1.innerHTML = votingObject['dont-like']
+    votos_dontlike1.innerHTML = votingObject['like']
     for (let i = 0; i < percentTags.length; i++) {
         let vote = votingObject[progressBoxes[i].id];
         let setWidth = Math.round(vote / totalVotes * 100);
