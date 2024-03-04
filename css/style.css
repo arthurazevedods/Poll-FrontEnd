@@ -11089,3 +11089,38 @@ background: linear-gradient(90deg, #0a0402, #150c08, #1d130d, #231811, #2b1d14, 
   width: 380px;
   height: 174px;
 }
+
+.cardEnquets{
+  width: 22rem; 
+  height: 23rem;
+}
+.progress-box{
+  padding: 30px;
+  width: 85px;
+  border-radius: 100px;
+}
+
+.questionTitle{
+  font-size: 10px;
+}
+
+.votes{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.dontlike{
+  text-align: center;
+}
+.like{
+  text-align: center;
+}
+
+.modal-finished{
+  justify-content: center;
+}
+
+.fa-circle-check{
+font-size: 80px;
+}

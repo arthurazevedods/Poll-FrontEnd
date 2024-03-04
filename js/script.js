@@ -7,7 +7,6 @@ let votos_like1 = document.getElementById('votos-like-1')
 let votos_dontlike1 = document.getElementById('votos-dontlike-1')
 
 
-
 for (let i = 0; i < progressBoxes.length; i++) {
     const elem = progressBoxes[i];
     elem.addEventListener('click',()=>{
@@ -38,9 +37,9 @@ socket.on('update', data => {
 const updatePolls = (data) =>{
     let votingObject = data.votingPolls;
     let totalVotes = data.totalVotes;
-    totalVotesElem.innerHTML = totalVotes
-    votos_like1.innerHTML = votingObject['dont-like']
-    votos_dontlike1.innerHTML = votingObject['like']
+    //totalVotesElem.innerHTML = totalVotes
+    //votos_like1.innerHTML = votingObject['like']
+    //votos_dontlike1.innerHTML = votingObject['dont-like']
     for (let i = 0; i < percentTags.length; i++) {
         let vote = votingObject[progressBoxes[i].id];
         let setWidth = Math.round(vote / totalVotes * 100);
